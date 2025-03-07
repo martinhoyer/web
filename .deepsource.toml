@@ -13,6 +13,6 @@ test_patterns = [
   "tests/**",
 ]
 
-[[transformers]]
-name = "ruff"
-enabled = true
+#[[transformers]]
+#name = "ruff"
+#enabled = true

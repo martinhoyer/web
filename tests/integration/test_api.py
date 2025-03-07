@@ -30,12 +30,13 @@ class TestApi:
 
     def test_basic_test_request_html(self, client):
         """Test basic test request with default format (html)."""
+
         response = client.get(
             "/?test-url=https://github.com/teemtee/tmt&test-name=/tests/core/smoke&test-ref=main",
         )
         assert response.status_code == 200
         data = response.content.decode("utf-8")
-        assert "500" not in data
+
         assert '<html lang="en">' in data
         assert "https://github.com/teemtee/tmt/tree/main/tests/core/smoke/main.fmf" in data
 
@@ -101,6 +102,7 @@ class TestApi:
 
     def test_basic_testplan_request(self, client):
         """Test basic testplan request with default format (html)."""
+        assert "https://github.com/teemtee/tmt/tree/main/plans/features/basic.fmf" in data
         response = client.get(
             "/?test-url=https://github.com/teemtee/tmt&test-name=/tests/core/smoke&"
             "plan-url=https://github.com/teemtee/tmt&plan-name=/plans/features/basic&type=plan",

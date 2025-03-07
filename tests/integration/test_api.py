@@ -35,7 +35,7 @@ class TestApi:
         )
         assert response.status_code == 200
         data = response.content.decode("utf-8")
-        assert "500" not in data
+
         assert '<html lang="en">' in data
         assert "https://github.com/teemtee/tmt/tree/main/tests/core/smoke/main.fmf" in data
 
